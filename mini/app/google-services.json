@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "626178535690",
+    "firebase_url": "https://mini-project-17514.firebaseio.com",
+    "project_id": "mini-project-17514",
+    "storage_bucket": "mini-project-17514.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626178535690:android:1375579a9595170e",
+        "android_client_info": {
+          "package_name": "com.example.sunita.mini"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626178535690-602fu3m92fnjpjk1gffdtoj3qpg42ar0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sunita.mini",
+            "certificate_hash": "ba63632c1a94057150cd97da8143c00617a3118e"
+          }
+        },
+        {
+          "client_id": "626178535690-stdm6lvehvk7bru1jeaecc8f9v8m98c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARJ-BVutGaIHDPR-_MtE2Q4K40NZsTKxU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626178535690-stdm6lvehvk7bru1jeaecc8f9v8m98c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
