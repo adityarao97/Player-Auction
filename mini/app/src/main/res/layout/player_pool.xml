@@ -4,74 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@color/colorMine">
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:alpha="0.9"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/cricket2" />
 
     <TextView
-        android:id="@+id/playerpool"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="PLAYERS POOL"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="22dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:text="Player Pool"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/enterplayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="78dp"
-        android:hint="Enter player name"
-        android:layout_alignParentLeft="true" />
-
-
     <Button
-        android:id="@+id/btninsert"
+        android:id="@+id/viewAllButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="142dp"
-        android:text="INSERT"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="20dp"
+        android:onClick="viewAll"
+        android:text="View All" />
 
-    <RelativeLayout
-        android:id="@+id/rellayout"
+    <ListView
+        android:id="@+id/resultListView"
         android:layout_width="match_parent"
-        android:layout_height="313dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:orientation="vertical"
-        android:layout_alignParentLeft="true">
-
-        <TextView
-            android:id="@+id/contents"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Players in pool"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:layout_alignParentLeft="true" />
-
-        <ListView
-            android:id="@+id/listviewdisplay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true">
-
-        </ListView>
-    </RelativeLayout>
-
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView"
+        android:scrollbars="vertical" />
 </RelativeLayout>
