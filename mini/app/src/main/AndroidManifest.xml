@@ -2,10 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sunita.mini">
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
 
+=======
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+>>>>>>> f8c6a864ff55dc3bcaee01e288037b7909a3da76
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
