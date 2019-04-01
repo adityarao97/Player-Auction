@@ -37,7 +37,7 @@ public class Admin_login extends AppCompatActivity {
         String password = edpswd.getText().toString();
 
         if ((id.equals("auctioner")) && (password.equals("ipl2020"))) {
-            Intent intent = new Intent(Admin_login.this, Player_pool.class);
+            Intent intent = new Intent(Admin_login.this, AdminPlayerPool.class);
             startActivity(intent);
         } else {
             Toast.makeText(Admin_login.this, "wrong credentials", Toast.LENGTH_LONG).show();
