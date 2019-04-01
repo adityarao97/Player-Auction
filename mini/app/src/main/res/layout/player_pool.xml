@@ -33,7 +33,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="viewAll"
-        android:text="View All" />
+        android:text="View All"
+        tools:ignore="OnClick" />
 
     <ListView
         android:id="@+id/resultListView"
