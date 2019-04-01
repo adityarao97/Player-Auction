@@ -22,10 +22,18 @@
         android:layout_marginTop="235dp"
         android:alpha="1"
         android:background="@android:color/white"
-        android:gravity="center_horizontal"
+        android:gravity="left"
         android:text="Player Profile"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/open_chat_bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_marginLeft="300dp"
+        android:text="BUY" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -62,6 +70,13 @@
                 android:id="@+id/roleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/basePriceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
                 android:textSize="18sp" />
 
             <LinearLayout

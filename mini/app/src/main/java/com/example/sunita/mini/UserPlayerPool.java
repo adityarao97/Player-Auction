@@ -23,7 +23,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Player_pool extends AppCompatActivity {
+public class UserPlayerPool extends AppCompatActivity {
+
 
     ListView resultListView;
     ArrayList<String> resultArrayList= new ArrayList<String>();
@@ -31,15 +32,15 @@ public class Player_pool extends AppCompatActivity {
 
     public void viewAll(View view){
         Button viewAllButton = (Button)findViewById(R.id.viewAllButton);
-        DownloadTask task = new DownloadTask();
+        UserPlayerPool.DownloadTask task = new UserPlayerPool.DownloadTask();
         task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.player_pool);
-        resultListView = (ListView)findViewById(R.id.resultListView);
+        setContentView(R.layout.user_player_pool);
+        resultListView = (ListView)findViewById(R.id.lvunsold);
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
@@ -110,15 +111,15 @@ public class Player_pool extends AppCompatActivity {
                     }
                 }
 
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Player_pool.this,android.R.layout.simple_list_item_1,resultArrayList);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(UserPlayerPool.this,android.R.layout.simple_list_item_1,resultArrayList);
                 resultListView.setAdapter(arrayAdapter);
                 resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                        Toast.makeText(getApplicationContext(),pidArrayList.get(position),Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Player_pool.this, Player_stats.class);
-                            intent.putExtra("pid",pidArrayList.get(position));
-                            startActivity(intent);
+//                        Toast.makeText(getApplicationContext(),pidArrayList.get(position), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(UserPlayerPool.this, UserPlayerStatistics.class);
+                        intent.putExtra("pid",pidArrayList.get(position));
+                        startActivity(intent);
                     }
                 });
 
@@ -128,6 +129,10 @@ public class Player_pool extends AppCompatActivity {
 
         }
     }
+
+
+
+
 
 
 }

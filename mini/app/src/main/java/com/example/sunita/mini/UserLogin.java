@@ -1,30 +1,15 @@
 package com.example.sunita.mini;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sunita.mini.Model.sign_up_info;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-public class Team_activity extends AppCompatActivity {
+public class UserLogin extends AppCompatActivity {
 
     EditText edid;
     EditText edpswd;
@@ -40,7 +25,7 @@ public class Team_activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.team_login);
+        setContentView(R.layout.user_login);
 
 
         edid=findViewById(R.id.teamid);
@@ -64,21 +49,21 @@ public class Team_activity extends AppCompatActivity {
       if((id.equals("firstteam")) && (password.equals("first_team")) &&  (name.equals("CSK")))
        {
            Toast.makeText(getApplicationContext(),"Welcome CSK",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(Team_activity.this,Team1.class);
+           Intent intent= new Intent(UserLogin.this,Team1.class);
            startActivity(intent);
        }
 
        else if((id.equals("secondteam")) && (password.equals("second_team")) &&  (name.equals("RCB")))
        {
            Toast.makeText(getApplicationContext(),"Welcome RCB",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(Team_activity.this,Team2.class);
+           Intent intent= new Intent(UserLogin.this,Team2.class);
            startActivity(intent);
        }
 
        else if((id.equals("thirdteam")) && (password.equals("third_team")) &&  (name.equals("KKR")))
        {
            Toast.makeText(getApplicationContext(),"Welcome KKR",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(Team_activity.this,Team3.class);
+           Intent intent= new Intent(UserLogin.this,Team3.class);
            startActivity(intent);
        }
         else

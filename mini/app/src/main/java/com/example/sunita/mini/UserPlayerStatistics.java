@@ -4,8 +4,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,14 +22,15 @@ import java.net.URL;
 
 import static java.lang.Math.floor;
 
+public class UserPlayerStatistics extends AppCompatActivity {
 
-public class player_stats extends AppCompatActivity {
-
+    Button buy;
     TextView ageTextView;
     TextView profileTextView;
     TextView fullNameTextView;
     TextView roleTextView;
     TextView basePriceTextView;
+
     ImageView bgImage;
     TextView b10;
     TextView b5w;
@@ -61,13 +65,14 @@ public class player_stats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.player_stats);
+        setContentView(R.layout.user_player_statistics);
         profileTextView = findViewById(R.id.profileTextView);
         fullNameTextView = findViewById(R.id.fullNameTextView);
         ageTextView = findViewById(R.id.ageTextView);
         roleTextView = findViewById(R.id.roleTextView);
-        basePriceTextView = findViewById(R.id.basePriceTextView);
+        basePriceTextView =findViewById(R.id.basePriceTextView);
 
+        buy=findViewById(R.id.open_chat_bot);
         b10 = findViewById(R.id.b10);
         b5w = findViewById(R.id.b5w);
         b4w = findViewById(R.id.b4w);
@@ -97,13 +102,22 @@ public class player_stats extends AppCompatActivity {
         tInns = findViewById(R.id.tInns);
         tMat = findViewById(R.id.tMat);
 
-
         Bundle bundle = getIntent().getExtras();
         String pid = bundle.getString("pid");
 //        Toast.makeText(getApplicationContext(),pid,Toast.LENGTH_LONG).show();
-        DownloadTask task = new DownloadTask();
-        task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid=" + pid);
+        UserPlayerStatistics.DownloadTask task = new UserPlayerStatistics.DownloadTask();
+        task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid="+pid);
+
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_LONG).show();
+                //Intent intent=new Intent(UserPlayerStatistics.this,Chat_activity.class);
+                //startActivity(intent);
+            }
+        });
     }
+
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
 
