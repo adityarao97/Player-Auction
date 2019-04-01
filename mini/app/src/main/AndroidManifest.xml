@@ -20,9 +20,10 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
         <activity android:name=".Admin_activity"></activity>
         <activity android:name=".Team_activity"></activity>
@@ -30,6 +31,7 @@
         <activity android:name=".database_layout"></activity>
         <activity android:name=".Unsold_player"></activity>
         <activity android:name=".Player_pool"></activity>
+        <activity android:name=".player_stats"></activity>
         <activity android:name=".Team1"></activity>
         <activity android:name=".Team3"></activity>
         <activity android:name=".Team2"></activity>
