@@ -64,6 +64,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/basePriceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="18sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

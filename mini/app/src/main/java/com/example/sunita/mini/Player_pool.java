@@ -1,10 +1,12 @@
 package com.example.sunita.mini;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,23 +27,19 @@ public class Player_pool extends AppCompatActivity {
 
     ListView resultListView;
     ArrayList<String> resultArrayList= new ArrayList<String>();
+    ArrayList<String> pidArrayList = new ArrayList<String>();
 
     public void viewAll(View view){
         Button viewAllButton = (Button)findViewById(R.id.viewAllButton);
         DownloadTask task = new DownloadTask();
         task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,resultArrayList);
-        resultListView.setAdapter(arrayAdapter);
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player_pool);
         resultListView = (ListView)findViewById(R.id.resultListView);
-
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
@@ -81,7 +79,6 @@ public class Player_pool extends AppCompatActivity {
 
             try {
 
-//                String message="";
 
                 JSONObject jsonObject = new JSONObject(result);
 
@@ -103,16 +100,34 @@ public class Player_pool extends AppCompatActivity {
                     for(int j=0;j<arr2.length();j++){
                         JSONObject jsonPart2 = arr2.getJSONObject(j);
                         String names="";
+                        String pids="";
                         names=jsonPart2.getString("name");
+                        pids=jsonPart2.getString("pid");
                         Log.i("names",names);
+                        Log.i("pid",pids);
                         resultArrayList.add(names);
+                        pidArrayList.add(pids);
                     }
                 }
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Player_pool.this,android.R.layout.simple_list_item_1,resultArrayList);
+                resultListView.setAdapter(arrayAdapter);
+                resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Toast.makeText(getApplicationContext(),pidArrayList.get(position),Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Player_pool.this,player_stats.class);
+                            intent.putExtra("pid",pidArrayList.get(position));
+                            startActivity(intent);
+                    }
+                });
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         }
     }
+
 
 }
