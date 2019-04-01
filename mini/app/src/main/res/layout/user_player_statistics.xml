@@ -27,14 +27,6 @@
         android:textColor="@android:color/black"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/open_chat_bot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_marginLeft="300dp"
-        android:text="BUY" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

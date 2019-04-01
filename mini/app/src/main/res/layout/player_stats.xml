@@ -38,6 +38,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/auctionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="auction"
+                android:text="Set For Auction" />
+
             <TextView
                 android:id="@+id/fullNameTextView"
                 android:layout_width="match_parent"

@@ -72,7 +72,6 @@ public class UserPlayerStatistics extends AppCompatActivity {
         roleTextView = findViewById(R.id.roleTextView);
         basePriceTextView =findViewById(R.id.basePriceTextView);
 
-        buy=findViewById(R.id.open_chat_bot);
         b10 = findViewById(R.id.b10);
         b5w = findViewById(R.id.b5w);
         b4w = findViewById(R.id.b4w);

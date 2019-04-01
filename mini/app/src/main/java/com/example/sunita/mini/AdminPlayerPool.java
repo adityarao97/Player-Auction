@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Player_pool extends AppCompatActivity {
+public class AdminPlayerPool extends AppCompatActivity {
 
     ListView resultListView;
     ArrayList<String> resultArrayList= new ArrayList<String>();
@@ -110,13 +110,13 @@ public class Player_pool extends AppCompatActivity {
                     }
                 }
 
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Player_pool.this,android.R.layout.simple_list_item_1,resultArrayList);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(AdminPlayerPool.this,android.R.layout.simple_list_item_1,resultArrayList);
                 resultListView.setAdapter(arrayAdapter);
                 resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                        Toast.makeText(getApplicationContext(),pidArrayList.get(position),Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Player_pool.this, Player_stats.class);
+                            Intent intent = new Intent(AdminPlayerPool.this, AdminPlayerStats.class);
                             intent.putExtra("pid",pidArrayList.get(position));
                             startActivity(intent);
                     }

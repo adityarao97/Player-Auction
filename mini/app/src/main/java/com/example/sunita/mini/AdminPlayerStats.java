@@ -1,11 +1,15 @@
 package com.example.sunita.mini;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,13 +24,15 @@ import java.net.URL;
 import static java.lang.Math.floor;
 
 
-public class Player_stats extends AppCompatActivity {
+public class AdminPlayerStats extends AppCompatActivity {
 
     TextView ageTextView;
     TextView profileTextView;
     TextView fullNameTextView;
     TextView roleTextView;
     TextView basePriceTextView;
+    Button auctionButton;
+
     ImageView bgImage;
     TextView b10;
     TextView b5w;
@@ -56,7 +62,7 @@ public class Player_stats extends AppCompatActivity {
     TextView tNO;
     TextView tInns;
     TextView tMat;
-
+    double bp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,7 @@ public class Player_stats extends AppCompatActivity {
         ageTextView = findViewById(R.id.ageTextView);
         roleTextView = findViewById(R.id.roleTextView);
         basePriceTextView = findViewById(R.id.basePriceTextView);
+        auctionButton= findViewById(R.id.auctionButton);
 
         b10 = findViewById(R.id.b10);
         b5w = findViewById(R.id.b5w);
@@ -103,6 +110,14 @@ public class Player_stats extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(),pid,Toast.LENGTH_LONG).show();
         DownloadTask task = new DownloadTask();
         task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid=" + pid);
+    }
+
+    public void auction(View view){
+        Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(AdminPlayerStats.this,AdminAuction.class);
+        intent.putExtra("fullName",fullNameTextView.getText().toString());
+        intent.putExtra("basePrice",bp + "");
+        startActivity(intent);
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
@@ -197,7 +212,7 @@ public class Player_stats extends AppCompatActivity {
                 String basePrice = "";
                 double val1 = Double.parseDouble(t20battingObject.getString("Runs"))*0.5;
                 double val2 = Double.parseDouble(t20BowlingObject.getString("Wkts"))*100;
-                double bp = floor((val1+val2)*1000);
+                bp = floor((val1+val2)*1000);
                 basePriceTextView.setText("Base Price : " + bp);
 
             } catch (JSONException e) {
