@@ -37,8 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnadmin"
-            android:layout_alignTop="@+id/btnuser"
-            android:layout_marginTop="10dp"
+            android:layout_alignTop="@+id/btnadmin"
+            android:layout_marginTop="48dp"
             android:background="@color/colorGrey"
             android:text="user" />
 
