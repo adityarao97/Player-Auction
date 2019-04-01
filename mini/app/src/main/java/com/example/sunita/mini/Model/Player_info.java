@@ -1,22 +1,25 @@
 package com.example.sunita.mini.Model;
 
 public class Player_info {
-        private String name;
-        private String age;
-        private int matches;
-        private int runs;
-        private float batavg;
-        private float batsr;
-        private float bowavg;
-        private float bowsr;
-        private int wickets;
-        private int baseprice;
+      String id;
+      String name;
+      String age;
+      int matches;
+      int runs;
+      float batavg;
+      float batsr;
+      float bowavg;
+      float bowsr;
+      int wickets;
+      int baseprice;
 
         public Player_info()
         {}
 
-        public Player_info(String name,String age,int matches,int runs,float batavg,float batsr,float bowavg, float bowsr,int wickets, int baseprice)
+        public Player_info(
+                String id,String name,String age,int matches,int runs,float batavg,float batsr,float bowavg, float bowsr,int wickets, int baseprice)
         {
+            this.id=id;
             this.name=name;
             this.age=age;
             this.matches=matches;
@@ -42,7 +45,11 @@ public class Player_info {
             return matches;
         }
 
-        public int getRuns() {
+         public String getId() {
+          return id;
+    }
+
+    public int getRuns() {
             return runs;
         }
 
