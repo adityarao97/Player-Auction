@@ -26,8 +26,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="50dp"
             android:paddingTop="0dp"
-            android:text="Welcome Admin"
+            android:text="Administrator"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <EditText

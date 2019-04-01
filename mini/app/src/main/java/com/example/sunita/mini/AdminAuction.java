@@ -51,7 +51,7 @@ public class AdminAuction extends AppCompatActivity {
         if(Collections.min(bidAmount)>Double.parseDouble(basePrice)){
             Double maxVal = Collections.max(bidAmount);
             int index = bidAmount.indexOf(maxVal)+1;
-            Toast.makeText(getApplicationContext(),"Team " + index + " Wins the auction",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"TeamDashboard " + index + " Wins the auction",Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(getApplicationContext(),"One of the bidding amount was less than the base price re-enter and submit",Toast.LENGTH_SHORT).show();

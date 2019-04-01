@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Team extends AppCompatActivity {
+public class TeamDashboard extends AppCompatActivity {
 
     TextView headingText;
     EditText bidAmountEditText;
@@ -24,7 +24,7 @@ public class Team extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.team_layout);
+        setContentView(R.layout.team_dashboard_layout);
         Bundle bundle = getIntent().getExtras();
         String heading = bundle.getString("heading");
 
@@ -47,7 +47,7 @@ public class Team extends AppCompatActivity {
     }
 
     public void pool(View view){
-        Intent intent = new Intent(Team.this,UserPlayerPool.class);
+        Intent intent = new Intent(TeamDashboard.this,UserPlayerPool.class);
         startActivity(intent);
     }
 }

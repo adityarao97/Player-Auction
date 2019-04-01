@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class UserLogin extends AppCompatActivity {
 
@@ -46,7 +45,7 @@ public class UserLogin extends AppCompatActivity {
         String password = edpswd.getText().toString();
         String name = edname.getText().toString().trim();
 
-        Intent intent = new Intent(UserLogin.this,Team.class);
+        Intent intent = new Intent(UserLogin.this, TeamDashboard.class);
         intent.putExtra("heading",name.toUpperCase());
         startActivity(intent);
 
