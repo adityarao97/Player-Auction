@@ -6,10 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.sunita.mini.Model.Player_info;
 
@@ -24,7 +22,6 @@ public class Team1 extends AppCompatActivity {
     Button gotodb;
     ListView details;
     List<Player_info> playerlist;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +35,7 @@ public class Team1 extends AppCompatActivity {
         gotodb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Team1.this,Unsold_player.class);
+                Intent intent=new Intent(Team1.this, UserPlayerPool.class);
                 startActivity(intent);
 
                 //listview pe click krne se owned_player khulega add krna

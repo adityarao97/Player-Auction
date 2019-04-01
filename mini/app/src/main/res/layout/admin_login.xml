@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:background="@color/colorMine">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
-        android:text="Welcome Admin"
-        android:textAlignment="center"
-        android:textSize="23dp"
-        android:layout_alignParentLeft="true" />
-    <EditText
-        android:id="@+id/adminid"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="165dp"
-        android:hint="Enter your id"
-        android:layout_alignParentLeft="true" />
-
-    <EditText
-        android:id="@+id/adminpassword"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="219dp"
-        android:hint="Enter your password"
-        android:layout_alignParentLeft="true" />
-
-    <Button
-        android:id="@+id/btnlogin"
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="152dp"
-        android:background="@color/colorGrey"
-        android:text="login"
-        android:layout_centerInParent="true"/>
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/admin" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="50px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:paddingTop="0dp"
+            android:text="Welcome Admin"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/adminid"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:hint="Enter your id" />
+
+        <EditText
+            android:id="@+id/adminpassword"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/adminid"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:hint="Enter your password"
+            android:password="true" />
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adminpassword"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"
+            android:text="login"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>

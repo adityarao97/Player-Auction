@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.sunita.mini.Model.Player_info;
 
@@ -37,7 +36,7 @@ public class Team3 extends AppCompatActivity {
         gotodb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Team3.this,Unsold_player.class);
+                Intent intent=new Intent(Team3.this, UserPlayerStatistics.class);
                 startActivity(intent);
             }
         });

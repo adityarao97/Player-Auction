@@ -6,15 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.sunita.mini.Admin_activity;
-import com.example.sunita.mini.R;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opening);
+        setContentView(R.layout.main_activity);
 
 
         final Button admin=findViewById(R.id.btnadmin);
@@ -24,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
         admin.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View view) {
-                                            startActivity(new Intent(MainActivity.this,Admin_activity.class));
+                                            startActivity(new Intent(MainActivity.this, Admin_login.class));
                                      }
                                  });
 
          user.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 startActivity(new Intent(MainActivity.this,Team_activity.class));
+                 startActivity(new Intent(MainActivity.this, UserLogin.class));
              }
          });
 

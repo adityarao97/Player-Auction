@@ -17,12 +17,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Unsold_player extends AppCompatActivity {
+import static java.lang.Math.floor;
+
+
+public class Player_stats extends AppCompatActivity {
 
     TextView ageTextView;
     TextView profileTextView;
     TextView fullNameTextView;
     TextView roleTextView;
+    TextView basePriceTextView;
     ImageView bgImage;
     TextView b10;
     TextView b5w;
@@ -57,11 +61,12 @@ public class Unsold_player extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.unsold_player_layout);
+        setContentView(R.layout.player_stats);
         profileTextView = findViewById(R.id.profileTextView);
         fullNameTextView = findViewById(R.id.fullNameTextView);
         ageTextView = findViewById(R.id.ageTextView);
         roleTextView = findViewById(R.id.roleTextView);
+        basePriceTextView = findViewById(R.id.basePriceTextView);
 
         b10 = findViewById(R.id.b10);
         b5w = findViewById(R.id.b5w);
@@ -92,11 +97,12 @@ public class Unsold_player extends AppCompatActivity {
         tInns = findViewById(R.id.tInns);
         tMat = findViewById(R.id.tMat);
 
-//        Bundle bundle = getIntent().getExtras();
-//        String pid = bundle.getString("pid");
+
+        Bundle bundle = getIntent().getExtras();
+        String pid = bundle.getString("pid");
 //        Toast.makeText(getApplicationContext(),pid,Toast.LENGTH_LONG).show();
-        Unsold_player.DownloadTask task = new Unsold_player.DownloadTask();
-        task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid=35320");
+        DownloadTask task = new DownloadTask();
+        task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid=" + pid);
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
@@ -188,6 +194,11 @@ public class Unsold_player extends AppCompatActivity {
                 tInns.setText("Innings : " + t20battingObject.getString("Inns"));
                 tMat.setText("Matches : " + t20battingObject.getString("Mat"));
 
+                String basePrice = "";
+                double val1 = Double.parseDouble(t20battingObject.getString("Runs"))*0.5;
+                double val2 = Double.parseDouble(t20BowlingObject.getString("Wkts"))*100;
+                double bp = floor((val1+val2)*1000);
+                basePriceTextView.setText("Base Price : " + bp);
 
             } catch (JSONException e) {
                 e.printStackTrace();
