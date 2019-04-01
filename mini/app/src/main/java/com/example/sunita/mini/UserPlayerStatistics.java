@@ -24,7 +24,6 @@ import static java.lang.Math.floor;
 
 public class UserPlayerStatistics extends AppCompatActivity {
 
-    Button buy;
     TextView ageTextView;
     TextView profileTextView;
     TextView fullNameTextView;
@@ -106,15 +105,15 @@ public class UserPlayerStatistics extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(),pid,Toast.LENGTH_LONG).show();
         UserPlayerStatistics.DownloadTask task = new UserPlayerStatistics.DownloadTask();
         task.execute("https://cricapi.com/api/playerStats?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&pid="+pid);
-
-        buy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_LONG).show();
-                //Intent intent=new Intent(UserPlayerStatistics.this,Chat_activity.class);
-                //startActivity(intent);
-            }
-        });
+//
+//        buy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_LONG).show();
+//                //Intent intent=new Intent(UserPlayerStatistics.this,Chat_activity.class);
+//                //startActivity(intent);
+//            }
+//        });
     }
 
 

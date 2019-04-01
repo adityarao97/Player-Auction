@@ -46,28 +46,32 @@ public class UserLogin extends AppCompatActivity {
         String password = edpswd.getText().toString();
         String name = edname.getText().toString().trim();
 
-      if((id.equals("firstteam")) && (password.equals("first_team")) &&  (name.equals("CSK")))
-       {
-           Toast.makeText(getApplicationContext(),"Welcome CSK",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(UserLogin.this,Team1.class);
-           startActivity(intent);
-       }
+        Intent intent = new Intent(UserLogin.this,Team.class);
+        intent.putExtra("heading",name.toUpperCase());
+        startActivity(intent);
 
-       else if((id.equals("secondteam")) && (password.equals("second_team")) &&  (name.equals("RCB")))
-       {
-           Toast.makeText(getApplicationContext(),"Welcome RCB",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(UserLogin.this,Team2.class);
-           startActivity(intent);
-       }
-
-       else if((id.equals("thirdteam")) && (password.equals("third_team")) &&  (name.equals("KKR")))
-       {
-           Toast.makeText(getApplicationContext(),"Welcome KKR",Toast.LENGTH_LONG).show();
-           Intent intent= new Intent(UserLogin.this,Team3.class);
-           startActivity(intent);
-       }
-        else
-            Toast.makeText(getApplicationContext(),"wrong credentials",Toast.LENGTH_LONG).show();
+//      if((id.equals("firstteam")) && (password.equals("first_team")) &&  (name.equals("CSK")))
+//       {
+//           Toast.makeText(getApplicationContext(),"Welcome CSK",Toast.LENGTH_LONG).show();
+//           Intent intent= new Intent(UserLogin.this,Team1.class);
+//           startActivity(intent);
+//       }
+//
+//       else if((id.equals("secondteam")) && (password.equals("second_team")) &&  (name.equals("RCB")))
+//       {
+//           Toast.makeText(getApplicationContext(),"Welcome RCB",Toast.LENGTH_LONG).show();
+//           Intent intent= new Intent(UserLogin.this,Team2.class);
+//           startActivity(intent);
+//       }
+//
+//       else if((id.equals("thirdteam")) && (password.equals("third_team")) &&  (name.equals("KKR")))
+//       {
+//           Toast.makeText(getApplicationContext(),"Welcome KKR",Toast.LENGTH_LONG).show();
+//           Intent intent= new Intent(UserLogin.this,Team3.class);
+//           startActivity(intent);
+//       }
+//        else
+//            Toast.makeText(getApplicationContext(),"wrong credentials",Toast.LENGTH_LONG).show();
     }
         // Read from the database
 

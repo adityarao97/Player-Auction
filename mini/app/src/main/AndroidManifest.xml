@@ -34,6 +34,7 @@
         <activity android:name=".Team3"></activity>
         <activity android:name=".Team2"></activity>
         <activity android:name=".AdminAuction"></activity>
+        <activity android:name=".Team"></activity>
 
     </application>
 
