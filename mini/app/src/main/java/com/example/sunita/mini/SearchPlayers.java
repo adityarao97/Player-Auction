@@ -27,26 +27,23 @@ public class SearchPlayers extends AppCompatActivity {
 
     EditText nameTextView;
     TextView resultTextView;
-    Button searchButton = findViewById(R.id.searchButton);
 
-    public void searchButton(View view){
-        Button searchButton = (Button)findViewById(R.id.searchButton);
-        searchButton.animate().alpha(1f).setDuration(500);
-        Toast.makeText(getApplicationContext(),nameTextView.getText().toString(),Toast.LENGTH_LONG).show();
-        String playerName = nameTextView.getText().toString();
-        InputMethodManager mgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        mgr.hideSoftInputFromWindow(nameTextView.getWindowToken(),0);
-        int i = playerName.indexOf(' ');
-        String[] words = playerName.split("\\W+");
-        String finalStr = "https://cricapi.com/api/playerFinder?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&name=";
-        for(int j=0;j<words.length;j++){
-            finalStr+=words[j] + " ";
-        }
-        DownloadTask task = new DownloadTask();
-        task.execute(finalStr);
-    }
-
-
+//    public void target(View view){
+//        Button searchButton = (Button)findViewById(R.id.searchButton);
+//        searchButton.animate().alpha(1f).setDuration(500);
+//        Toast.makeText(getApplicationContext(),nameTextView.getText().toString(),Toast.LENGTH_LONG).show();
+//        String playerName = nameTextView.getText().toString();
+//        InputMethodManager mgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//        mgr.hideSoftInputFromWindow(nameTextView.getWindowToken(),0);
+//        int i = playerName.indexOf(' ');
+//        String[] words = playerName.split("\\W+");
+//        String finalStr = "https://cricapi.com/api/playerFinder?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&name=";
+//        for(int j=0;j<words.length;j++){
+//            finalStr+=words[j] + " ";
+//        }
+//        DownloadTask task = new DownloadTask();
+//        task.execute(finalStr);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +51,28 @@ public class SearchPlayers extends AppCompatActivity {
         setContentView(R.layout.search_players);
         nameTextView = (EditText)findViewById(R.id.nameEditText);
         resultTextView = (TextView)findViewById(R.id.resultTextView);
+        Button searchButton = findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Button searchButton = findViewById(R.id.searchButton);
+                searchButton.animate().alpha(1f).setDuration(500);
+//                Toast.makeText(getApplicationContext(),nameTextView.getText().toString(),Toast.LENGTH_LONG).show();
+                String playerName = nameTextView.getText().toString();
+                InputMethodManager mgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.hideSoftInputFromWindow(nameTextView.getWindowToken(),0);
+                int i = playerName.indexOf(' ');
+                String[] words = playerName.split("\\W+");
+                String finalStr = "https://cricapi.com/api/playerFinder?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&name=";
+                for(int j=0;j<words.length;j++){
+                    finalStr+=words[j] + " ";
+                }
+                DownloadTask task = new DownloadTask();
+                task.execute(finalStr);
+            }
+        });
+
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
@@ -112,7 +131,7 @@ public class SearchPlayers extends AppCompatActivity {
                     pid=jsonPart.getString("pid");
                     fullName=jsonPart.getString("fullName");
                     if(pid!="null" && fullName!="null") {
-                        message += "Player ID " + ": " + pid + "\nFull Name " + ": " + fullName + "\n";
+                        message += "Player ID " + ": " + pid + "\nFull Name " + ": " + fullName + " (Exists)\n";
                     }
                     else{
                         message = "";

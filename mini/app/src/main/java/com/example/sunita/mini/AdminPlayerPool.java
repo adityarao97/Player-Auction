@@ -29,16 +29,14 @@ public class AdminPlayerPool extends AppCompatActivity {
     ArrayList<String> resultArrayList= new ArrayList<String>();
     ArrayList<String> pidArrayList = new ArrayList<String>();
 
-    public void viewAll(View view){
-        Button viewAllButton = (Button)findViewById(R.id.viewAllButton);
-        DownloadTask task = new DownloadTask();
-        task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player_pool);
+//        Button viewAllButton = (Button)findViewById(R.id.viewAllButton);
+        DownloadTask task = new DownloadTask();
+        task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
         resultListView = (ListView)findViewById(R.id.resultListView);
     }
 

@@ -31,6 +31,10 @@ public class TeamDashboard extends AppCompatActivity {
     ListView listView;
     String[] arr={""};
     String teamList="";
+    ArrayList<String> list = new ArrayList<String>();
+    ArrayAdapter<String> arrayAdapter;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,13 +42,29 @@ public class TeamDashboard extends AppCompatActivity {
         setContentView(R.layout.team_dashboard_layout);
         Bundle bundle = getIntent().getExtras();
         String heading = bundle.getString("heading");
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+
+
+        headingText = findViewById(R.id.headingText);
+        bidAmountEditText = findViewById(R.id.bidAmountEditText);
+        listView = findViewById(R.id.listView);
+        headingText.setText(heading);
 
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Team_info").child(heading);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 teamList = dataSnapshot.child("playername").getValue(String.class);
+                arr = teamList.split(",");
                 Log.i("PlayerNames",teamList);
+                for(String ss: arr){
+                    list.add(ss);
+                }
+                listView.setAdapter(arrayAdapter);
+//                Log.i("PlayerName1",list.get(1));
+//                Log.i("PlayerName2",list.get(2));
+
+//                Log.i("PlayerNames",list.get(1));
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -52,20 +72,8 @@ public class TeamDashboard extends AppCompatActivity {
             }
         });
 
-        headingText = findViewById(R.id.headingText);
-        bidAmountEditText = findViewById(R.id.bidAmountEditText);
-        listView = findViewById(R.id.listView);
 
-        ArrayList<String> list = new ArrayList<String>();
-        arr = teamList.split(",");
-        for(String ss: arr){
-            list.add(ss);
-        }
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(arrayAdapter);
-
-        headingText.setText(heading);
     }
 
 

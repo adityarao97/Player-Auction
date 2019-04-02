@@ -113,7 +113,7 @@ public class AdminPlayerStats extends AppCompatActivity {
     }
 
     public void auction(View view){
-        Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(AdminPlayerStats.this,AdminAuction.class);
         intent.putExtra("fullName",fullNameTextView.getText().toString());
         intent.putExtra("basePrice",bp + "");

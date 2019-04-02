@@ -30,17 +30,13 @@ public class UserPlayerPool extends AppCompatActivity {
     ArrayList<String> resultArrayList= new ArrayList<String>();
     ArrayList<String> pidArrayList = new ArrayList<String>();
 
-    public void viewAll(View view){
-        Button viewAllButton = (Button)findViewById(R.id.viewAllButton);
-        UserPlayerPool.DownloadTask task = new UserPlayerPool.DownloadTask();
-        task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_player_pool);
         resultListView = (ListView)findViewById(R.id.lvunsold);
+        UserPlayerPool.DownloadTask task = new UserPlayerPool.DownloadTask();
+        task.execute("https://cricapi.com/api/fantasySquad?apikey=J064Y1WaUoUPLccdlFeX1Kg5w8i2&unique_id=1034809");
     }
 
     public  class DownloadTask extends AsyncTask<String, Void, String> {
