@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameEditText"
         android:alpha="0.7"
-        android:onClick="searchButtonClick"
+        android:onClick="searchButton"
         android:text="Search" />
 
     <TextView

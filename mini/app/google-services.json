@@ -23,8 +23,12 @@
           }
         },
         {
-          "client_id": "626178535690-stdm6lvehvk7bru1jeaecc8f9v8m98c8.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "626178535690-bhmtdba899fd7t1rvtfr8h7dhokl9543.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sunita.mini",
+            "certificate_hash": "dce9d2ca427d3fe3c4ad08bb9029e0bd2896983f"
+          }
         }
       ],
       "api_key": [
@@ -33,20 +37,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "626178535690-stdm6lvehvk7bru1jeaecc8f9v8m98c8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

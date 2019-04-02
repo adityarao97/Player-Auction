@@ -29,7 +29,7 @@ public class SearchPlayers extends AppCompatActivity {
     TextView resultTextView;
     Button searchButton = findViewById(R.id.searchButton);
 
-    public void searchButtonClick(View view){
+    public void searchButton(View view){
         Button searchButton = (Button)findViewById(R.id.searchButton);
         searchButton.animate().alpha(1f).setDuration(500);
         Toast.makeText(getApplicationContext(),nameTextView.getText().toString(),Toast.LENGTH_LONG).show();

@@ -21,7 +21,9 @@ public class sign_up_activity extends AppCompatActivity {
     Button signup;
 
 
-   DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Team_info");
+    DatabaseReference myRef1 = FirebaseDatabase.getInstance().getReference("Team_info").child("team1");
+    DatabaseReference myRef2 = FirebaseDatabase.getInstance().getReference("Team_info").child("team2");
+    DatabaseReference myRef3 = FirebaseDatabase.getInstance().getReference("Team_info").child("team3");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +41,6 @@ public class sign_up_activity extends AppCompatActivity {
                 signupteamlogin();
             }
         });
-
     }
 
     public void signupteamlogin() {
@@ -48,19 +49,18 @@ public class sign_up_activity extends AppCompatActivity {
         String teamname = edname.getText().toString().trim();
 
 
-        if(!TextUtils.isEmpty(teamid) || !TextUtils.isEmpty(password) || !TextUtils.isEmpty(teamname))
+        if(!TextUtils.isEmpty(teamid) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(teamname))
         {
-           String id=myRef.push().getKey();
+           //String id=myRef.push().getKey();
+           //String new==id;
 
-            sign_up_info sgn_info=new sign_up_info(id,teamid,teamname,password);
-            myRef.child(id).setValue(sgn_info);
+            sign_up_info sgn_info=new sign_up_info(teamid,teamname,password);
+            //myRef.child(id).setValue(sgn_info);
+            myRef1.setValue(sgn_info);
 
-            Toast.makeText(getApplicationContext(),"signed in",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Signed In",Toast.LENGTH_LONG).show();
         }
-
         else
-            Toast.makeText(getApplicationContext(),"plz enter all the credintials",Toast.LENGTH_LONG).show();
-
-
+            Toast.makeText(getApplicationContext(),"Please Enter all the credintials",Toast.LENGTH_LONG).show();
     }
 }
